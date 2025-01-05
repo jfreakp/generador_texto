@@ -37,3 +37,17 @@ tipoProfesional = [
     { "value": "I", "label": "INGENIERO" },
     { "value": "R", "label": "RESPONSABLE CIVIL" }
   ]
+
+tipoPeriodicidad= [
+    { "value": "A", "label": "ANUAL" },
+    { "value": "B", "label": "BIMENSUAL" },
+    { "value": "M", "label": "MENSUAL" },
+    { "value": "S", "label": "SEMESTRAL" },
+    { "value": "T", "label": "TRIMESTRAL" }
+  ]
+
+tipoCuota = [
+    { "value": "A59", "label": "ARTICULO 59" },
+    { "value": "N", "label": "NORMAL" },
+    { "value": "R", "label": "REAL" }
+  ]
