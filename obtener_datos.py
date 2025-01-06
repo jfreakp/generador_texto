@@ -34,21 +34,21 @@ class ObtenerDatos:
                         case 3:
                             linea+='CI'
                         case 5:
-                            linea+= random.choice(listas.nivelEducativo)["value"]
+                            linea+= str(random.choice(listas.nivelEducativo)["value"])
                         case 7:
-                            linea+= random.choice(listas.sexo)["value"]
+                            linea+= str(random.choice(listas.sexo)["value"])
                         case 9:
-                            linea+= random.choice(listas.estadoCivil)["value"]
+                            linea+= str(random.choice(listas.estadoCivil)["value"])
                         case 12:
                             linea+= c['NOMBRE']
                         case 13:
                             linea+= 'NINGUNA'
                         case 14:
-                            linea+= 1
+                            linea+= '1'
                         case 15:
                             linea+= c['FECHA_NACIMIENTO']
                         case 16:
-                            linea+= c['CODIGO_CLIENTE']
+                            linea+= str(c['CODIGO_CLIENTE'])
                     linea+='|'
                 else:
                     linea+='|'
@@ -304,7 +304,7 @@ class ObtenerDatos:
                         case 11:
                             linea+= str(random.choice(listas.tipoProfesional)["value"])
                         case 12:
-                            linea+= ObtenerDatos.generar_cedula_cr
+                            linea+= ObtenerDatos.generar_cedula_cr()
                     linea+='|'
                 else:
                     linea+='|'
