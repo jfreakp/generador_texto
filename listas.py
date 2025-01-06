@@ -51,3 +51,69 @@ tipoCuota = [
     { "value": "N", "label": "NORMAL" },
     { "value": "R", "label": "REAL" }
   ]
+
+parentesco = [
+    { "value": "A", "label": "ABUELO/A" },
+    { "value": "C", "label": "COMPAÑERO/A" },
+    { "value": "E", "label": "ESPOSO/A" },
+    { "value": "H", "label": "HIJO/A" },
+    { "value": "HH", "label": "HERMANO/A" },
+    { "value": "J", "label": "JEFE DE FAMILIA" },
+    { "value": "M", "label": "PADRE/MADRE" },
+    { "value": "N", "label": "NIETO/A" },
+    { "value": "NA", "label": "NO APLICA" },
+    { "value": "P", "label": "PRIMO/A" },
+    { "value": "S", "label": "SOBRINO/A" }
+  ]
+
+tipoDeudor = [
+    { "value": "D", "label": "DEUDOR" },
+    { "value": "C", "label": "CODEUDOR" },
+    { "value": "N", "label": "NINGUNO" }
+  ]
+
+codigoProvincia = [
+    { "value": "1", "label": "SAN JOSE" },
+    { "value": "2", "label": "ALAJUELA" },
+    { "value": "3", "label": "CARTAGO" },
+    { "value": "4", "label": "HEREDIA" },
+    { "value": "5", "label": "GUANACASTE" },
+    { "value": "6", "label": "PUNTARENAS" },
+    { "value": "7", "label": "LIMON" }
+  ]
+
+codigoPiezaConstruccion = [
+    { "value": "1", "label": "PLANTAS" },
+    { "value": "2", "label": "COCINA" },
+    { "value": "3", "label": "DORMITORIOS" },
+    { "value": "4", "label": "CUARTO DE PILAS" },
+    { "value": "5", "label": "BAÑOS" },
+    { "value": "6", "label": "COCHERA" },
+    { "value": "7", "label": "SALA" },
+    { "value": "8", "label": "CUARTO DE SERVICIO" },
+    { "value": "9", "label": "COMEDOR" }
+  ]
+
+codigoSistemaConstructivo = [
+    { "value": "1", "label": "CIMIENTOS" },
+    { "value": "2", "label": "PAREDES INTERNAS" },
+    { "value": "3", "label": "PAREDES EXTERNAS" },
+    { "value": "3", "label": "PISOS" },
+    { "value": "4", "label": "CIELOS" },
+    { "value": "6", "label": "ARMADURAS DE TECHOS" },
+    { "value": "7", "label": "CUBIERTAS DE TECHOS" }
+  ]
+
+tipoAporte = [
+    { "value": "MO", "label": "MANO DE OBRA" },
+    { "value": "MAT", "label": "MATERIALES" },
+    { "value": "EF", "label": "EFECTIVO" }
+  ]
+
+tipoGasto = [
+    { "value": "TL", "label": "TRAMITES LEGALES" },
+    { "value": "PP", "label": "PRIMA POLIZA SEGURO" },
+    { "value": "C", "label": "COMISION" },
+    { "value": "HI", "label": "HONORARIOS INGENIEROS" },
+    { "value": "OT", "label": "OTROS" }
+  ]
