@@ -267,7 +267,7 @@ class ObtenerDatos:
             texto+=linea
         return texto
     
-    def lotes(orden_array, mim_orden, max_orden):
+    def construccion(orden_array, mim_orden, max_orden):
         texto = ''
         
         for c in range(1,100):

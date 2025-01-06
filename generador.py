@@ -1,7 +1,7 @@
 import datos
 from obtener_datos import ObtenerDatos
 
-tablas = ['SP_PERSONAS_BFV', 'SP_PROFESIONALES_BFV', 'SP_ESTADOS_BFV','SP_OPERACIONES_BFV', 'SP_NUCLEO_BFV']
+tablas = ['SP_PERSONAS_BFV', 'SP_PROFESIONALES_BFV', 'SP_ESTADOS_BFV','SP_OPERACIONES_BFV', 'SP_NUCLEO_BFV', 'SP_LOTE_BFV', 'SP_CONSTRUCCION_BFV', 'SP_APORTES_BFV', 'SP_GASTOS_BFV']
 nombre_tabla = tablas[4]
 
 filtrados = [tabla for tabla in datos.tablas if tabla["NOMBRE_TABLA"] == nombre_tabla]
@@ -30,3 +30,19 @@ match nombre_tabla:
     case 'SP_NUCLEO_BFV':
         with open("archivos/Nucleos.txt", "w", encoding="utf-8") as file:
             file.write(ObtenerDatos.nucleos(orden_array,mim_orden, max_orden))
+
+    case 'SP_LOTE_BFV':
+        with open("archivos/Lotes.txt", "w", encoding="utf-8") as file:
+            file.write(ObtenerDatos.lotes(orden_array,mim_orden, max_orden))
+
+    case 'SP_CONSTRUCCION_BFV':
+        with open("archivos/Lotes.txt", "w", encoding="utf-8") as file:
+            file.write(ObtenerDatos.construccion(orden_array,mim_orden, max_orden))
+
+    case 'SP_APORTES_BFV':
+        with open("archivos/Lotes.txt", "w", encoding="utf-8") as file:
+            file.write(ObtenerDatos.aportes(orden_array,mim_orden, max_orden))
+
+    case 'SP_GASTOS_BFV':
+        with open("archivos/Lotes.txt", "w", encoding="utf-8") as file:
+            file.write(ObtenerDatos.gastos(orden_array,mim_orden, max_orden))
