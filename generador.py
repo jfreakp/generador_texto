@@ -1,9 +1,9 @@
 import datos
 from obtener_datos import ObtenerDatos
 
+tablas = ['SP_PERSONAS_BFV', 'SP_PROFESIONALES_BFV', 'SP_ESTADOS_BFV','SP_OPERACIONES_BFV', 'SP_NUCLEO_BFV', 'SP_LOTE_BFV', 'SP_CONSTRUCCION_BFV', 'SP_APORTES_BFV', 'SP_GASTOS_BFV','SP_CASOS_BFV']
 
 def generar_all(num_tabla):
-    tablas = ['SP_PERSONAS_BFV', 'SP_PROFESIONALES_BFV', 'SP_ESTADOS_BFV','SP_OPERACIONES_BFV', 'SP_NUCLEO_BFV', 'SP_LOTE_BFV', 'SP_CONSTRUCCION_BFV', 'SP_APORTES_BFV', 'SP_GASTOS_BFV']
     nombre_tabla = tablas[num_tabla]
 
     filtrados = [tabla for tabla in datos.tablas if tabla["NOMBRE_TABLA"] == nombre_tabla]
@@ -49,6 +49,9 @@ def generar_all(num_tabla):
             with open("archivos/Gastos.txt", "w", encoding="utf-8") as file:
                 file.write(ObtenerDatos.gastos(orden_array,mim_orden, max_orden))
 
+        case 'SP_CASOS_BFV':
+            with open("archivos/Casos.txt", "w", encoding="utf-8") as file:
+                file.write(ObtenerDatos.casos(orden_array,mim_orden, max_orden))
 
-for i in range(1,9):
+for i in range(1,len(tablas)):
     generar_all(i)

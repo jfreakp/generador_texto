@@ -117,3 +117,60 @@ tipoGasto = [
     { "value": "HI", "label": "HONORARIOS INGENIEROS" },
     { "value": "OT", "label": "OTROS" }
   ]
+
+prioridad = [
+    { "value": "N", "label": "NORMAL" },
+    { "value": "E", "label": "ESPECIAL" }
+  ]
+
+proposito = [
+    { "value": "CL", "label": "COMPRA DE LOTE" },
+    { "value": "CLP", "label": "CONSTRUC EN LOTE PROPIO" },
+    { "value": "LYC", "label": "COMPRA DE LOTE Y CONSTRUC" },
+    { "value": "ARM", "label": "AMP. REP. MEJ. Y/O TERM. VIVIENDA" },
+    { "value": "CVE", "label": "COMPRA VIVIENDA EXISTENTE" },
+    { "value": "CH", "label": "CANCELACION HIPOTECA" },
+    { "value": "ND", "label": "NOVACION DE DEUDOR" }
+  ]
+solicitud =[
+    { "value": "CS", "label": "CON SUBSIDIO" },
+    { "value": "SS", "label": "SIN SUBSIDIO" }
+  ]
+
+postulacion=[
+    { "value": "SI", "label": "SOLICITUD INDIVIDUAL" },
+    { "value": "P59", "label": "PROYECTO ART 59" },
+    { "value": "PR", "label": "PROYECTO REGULAR" }
+  ]
+
+programa = [
+    { "value": "ET", "label": "ERRADIC TUGURIOS ASENT. PRECARIO" },
+    { "value": "M", "label": "IMPEDIMENTO FISICO" },
+    { "value": "RB", "label": "REMANENTE DE BONO" },
+    { "value": "SE", "label": "SIT EMERGENCIA EXTREMA NECESID" },
+    { "value": "AM", "label": "ADULTO MAYOR" },
+    { "value": "AB", "label": "AHORRO BONO" },
+    { "value": "GO", "label": "GRUPOS ORGANIZADOS" },
+    { "value": "CM", "label": "CASA DEL MAESTRO" },
+    { "value": "R", "label": "REGULAR" }
+  ]
+
+garantia = [
+    { "value": "P", "label": "PRENDARIA" },
+    { "value": "F", "label": "FIDUCIARIA" },
+    { "value": "H", "label": "HIPOTECARIA" }
+  ]
+
+tipoAprobacion= [
+    { "value": "2", "label": "GERENCIA GENERAL ENTIDAD" },
+    { "value": "1", "label": "JUNTA DIRECTIVA ENTIDAD" },
+    { "value": "3", "label": "COMITE DE CREDITO" }
+  ]
+
+tipoProfesional = [
+    { "value": "D", "label": "DESARROLLADOR" },
+    { "value": "R", "label": "RESPONSABLE CIVIL" },
+    { "value": "C", "label": "CONSTRUCTOR" },
+    { "value": "I", "label": "INGENIERO" },
+    { "value": "ARQ", "label": "ARQUITECTO" }
+  ]

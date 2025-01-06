@@ -3,7 +3,7 @@ import random
 import faker
 import datos
 
-from datetime import datetime
+from datetime import datetime, timedelta
 # Obtener la fecha actual
 fecha_actual = datetime.now()
 
@@ -11,6 +11,21 @@ fecha_actual = datetime.now()
 formato_fecha = fecha_actual.strftime('%d/%m/%Y')
 
 fake = faker.Faker('es')
+
+def fecha_aleatoria():
+    # Definir las fechas de inicio y fin
+    inicio = datetime(2000, 1, 1)
+    fin = datetime(2024, 12, 31)
+
+    # Generar un número aleatorio de días entre las fechas
+    delta_dias = (fin - inicio).days
+    dias_aleatorios = random.randint(0, delta_dias)
+
+    # Calcular la fecha aleatoria
+    fecha = inicio + timedelta(days=dias_aleatorios)
+
+    # Formatear la fecha como DDMMYYYY
+    return fecha.strftime('%d%m%Y')
 
 class ObtenerDatos:
     def generar_cedula_cr():
@@ -430,4 +445,95 @@ class ObtenerDatos:
                 if c != 100:
                     linea+='\n'
                 texto+=linea
+        return texto
+    
+    def casos(orden_array, mim_orden, max_orden):
+        texto = ''
+        cont = 0
+        for  c in datos.clientes:
+            linea = ''
+            cont+=1
+            for i in range(mim_orden, max_orden):
+                if i in orden_array:
+                    match i:
+                        case 1:
+                            linea+=str(cont)
+                        case 2:
+                            linea+='1'
+                        case 4:
+                            linea+=str(random.choice(listas.prioridad)["value"])
+                        case 6:
+                            linea+=str(random.choice(listas.solicitud)["value"])
+                        case 8:
+                            linea+=str(random.choice(listas.proposito)["value"])
+                        case 10:
+                            linea+=str(random.choice(listas.postulacion)["value"])
+                        case 12:
+                            linea+=str(random.choice(listas.programa)["value"])
+                        case 16:
+                            linea+=str(random.choice(listas.garantia)["value"])
+                        case 17:
+                            linea+='1'
+                        case 18:
+                            linea+='1'
+                        case 19:
+                            linea+='1'
+                        case 20:
+                            linea+=str(cont)
+                        case 21:
+                            linea+=c['IDENTIFICACION']
+                        case 22:
+                            linea+=str(random.choice([i for i in range(400, 2000, 100)]))
+                        case 24:
+                            linea+=str(random.choice([i for i in range(400, 1000, 100)]))
+                        case 25:
+                            linea+=str(random.choice(listas.tipoAprobacion)["value"])
+                        case 26:
+                            linea+=str(random.choice([i for i in range(0, 400, 1)])/100)
+                        case 28:
+                            linea+=str(random.choice(listas.tipoProfesional)["value"])
+                        case 29:
+                            linea+='30'
+                        case 30:
+                            linea+=ObtenerDatos.generar_cedula_cr()
+                        case 32:
+                            linea+='CO'
+                        case 33:
+                            linea+=ObtenerDatos.generar_cedula_cr()
+                        case 35:
+                            linea+='A'
+                        case 36:
+                            linea+=ObtenerDatos.generar_cedula_cr()
+                        case 39:
+                            linea+=''
+                        case 41:
+                            linea+= fecha_aleatoria()
+                        case 42:
+                            linea+= fecha_aleatoria()
+                        case 43:
+                            linea+= fecha_aleatoria()
+                        case 44:
+                            linea+= fecha_aleatoria()
+                        case 45:
+                            linea+= fecha_aleatoria()
+                        case 48:
+                            linea+= fake.address()
+                        case 50:
+                            linea+= '3'
+                        case 51:
+                            linea+= str(random.choice([i for i in range(1, 3, 1)]))
+                        case 52:
+                            linea+= str(random.choice([i for i in range(500, 1000, 10)]))
+                        case 53:
+                            linea+= '1'
+                        case 62:
+                            linea+= '1'
+                        case 63:
+                            linea+= fecha_aleatoria()
+                    linea+='|'
+                else:
+                    linea+='|'
+            if c != datos.clientes[-1]:
+                linea+='\n'
+            texto+=linea
         return texto
