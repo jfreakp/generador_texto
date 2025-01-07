@@ -80,11 +80,11 @@ class ObtenerDatos:
                 if i in orden_array:
                     match i:
                         case 2:
-                            linea+= random.choice(listas.tipoProfesional)["value"]
+                            linea+= random.choice(listas.tipoProfesional)["value"]                        
                         case 3:
-                            linea+= fake.name().upper()
+                            linea+= ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 4:
-                            linea+= ObtenerDatos.generar_cedula_cr()
+                            linea+= fake.name().upper()
                     linea+='|'
                 else:
                     linea+='|'
@@ -119,6 +119,7 @@ class ObtenerDatos:
         for c in range(1,100):
             P = random.choice([i for i in range(1000, 150000, 1000)])  # Monto del préstamo
             tasa_anual = (random.randint(4, 18))/100 #0.12  # Tasa anual en porcentaje (12%)
+            tasa = tasa_anual*100
             n = random.choice([i for i in range(12, 61, 6)])  # Plazo en meses
 
             # Cálculo de la tasa mensual
@@ -143,7 +144,7 @@ class ObtenerDatos:
                         case 8:
                             linea+= str(n)
                         case 9:
-                            linea+= str(P)
+                            linea+= str(tasa)
                         case 10:
                             linea+= str(n)
                         case 11:
@@ -495,15 +496,15 @@ class ObtenerDatos:
                         case 29:
                             linea+='30'
                         case 30:
-                            linea+=ObtenerDatos.generar_cedula_cr()
+                            linea+=ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 32:
                             linea+='CO'
                         case 33:
-                            linea+=ObtenerDatos.generar_cedula_cr()
+                            linea+=ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 35:
                             linea+='A'
                         case 36:
-                            linea+=ObtenerDatos.generar_cedula_cr()
+                            linea+=ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 39:
                             linea+=''
                         case 41:
@@ -523,13 +524,13 @@ class ObtenerDatos:
                         case 51:
                             linea+= str(random.choice([i for i in range(1, 3, 1)]))
                         case 52:
-                            linea+= str(random.choice([i for i in range(500, 1000, 10)]))
+                            linea+= str(random.choice([i for i in range(500, 1000, 10)]))   
                         case 53:
-                            linea+= '1'
+                            linea+= ''     
                         case 62:
-                            linea+= '1'
+                            linea+= ''  
                         case 63:
-                            linea+= fecha_aleatoria()
+                            linea+= ''                   
                     linea+='|'
                 else:
                     linea+='|'
