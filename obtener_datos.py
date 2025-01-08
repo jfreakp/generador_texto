@@ -132,7 +132,7 @@ class ObtenerDatos:
     
     def operaciones(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,100):
+        for c in range(1,len(datos.clientes)):
             P = random.choice([i for i in range(1000, 150000, 1000)])  # Monto del préstamo
             tasa_anual = (random.randint(4, 18))/100 #0.12  # Tasa anual en porcentaje (12%)
             tasa = tasa_anual*100
@@ -194,7 +194,7 @@ class ObtenerDatos:
                     linea+='|'
                 else:
                     linea+='|'
-            if c != 99:
+            if c !=len(datos.clientes)-1:
                 linea+='\n'
             texto+=linea
         return texto
@@ -203,7 +203,7 @@ class ObtenerDatos:
         texto = ''
         cont = 0
         cont2 = 1
-        for n in range(1,random.randint(1,42)):
+        for n in range(1,len(datos.clientes)):
                 linea = ''
                 cont +=1
                 if n%4 == 0:
@@ -242,7 +242,7 @@ class ObtenerDatos:
     def lotes(orden_array, mim_orden, max_orden):
         texto = ''
         
-        for c in range(1,42):
+        for c in range(1,len(datos.clientes)):
             linea = ''
             area = random.choice([i for i in range(200, 2000, 50)])
             costo = 102
@@ -304,7 +304,7 @@ class ObtenerDatos:
     def construccion(orden_array, mim_orden, max_orden):
         texto = ''
         
-        for c in range(1,42):
+        for c in range(1,len(datos.clientes)):
             linea = ''
             area = random.choice([i for i in range(200, 2000, 50)])
             costo = 500
@@ -350,7 +350,7 @@ class ObtenerDatos:
 
     def piezas(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,100):
+        for c in range(1,len(datos.clientes)):
             linea = ''
             for n in range(1,9):
                 if n in [2,6,8,9]:
@@ -380,7 +380,7 @@ class ObtenerDatos:
     
     def acabados(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,100):
+        for c in range(1,len(datos.clientes)):
             linea = ''
             for n in range(1,9):
                 if n in [2,6,8,9]:
@@ -412,7 +412,7 @@ class ObtenerDatos:
     
     def aportes(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,42):
+        for c in range(1,len(datos.clientes)):
             linea = ''
             for i in range(mim_orden, max_orden):
                 if i in orden_array:
@@ -435,7 +435,7 @@ class ObtenerDatos:
     
     def gastos(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,42):
+        for c in range(1,len(datos.clientes)):
             linea = ''       
             for i in range(mim_orden, max_orden):
                 valores = random.sample(range(500, 10000), 50)

@@ -53,7 +53,6 @@ def generar_all(num_tabla):
             with open("archivos/Casos.txt", "w", encoding="utf-8") as file:
                 file.write(ObtenerDatos.casos(orden_array,mim_orden, max_orden))
 
-#for i in range(1,len(tablas)):
-#    generar_all(i)
-generar_all(8)
-print(tablas[8])
+for i in range(1,len(tablas)):
+    generar_all(i)
+
