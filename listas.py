@@ -111,11 +111,21 @@ tipoAporte = [
   ]
 
 tipoGasto = [
-    { "value": "TL", "label": "TRAMITES LEGALES" },
-    { "value": "PP", "label": "PRIMA POLIZA SEGURO" },
-    { "value": "C", "label": "COMISION" },
-    { "value": "HI", "label": "HONORARIOS INGENIEROS" },
-    { "value": "OT", "label": "OTROS" }
+    { "value": "PF", "label": "PATRIMONIO FAMILIAR" },
+    { "value": "SEG", "label": "SEGREGACION" },
+    { "value": "MB", "label": "MONTO DEL BONO" },
+    { "value": "EAM", "label": "ESTUDIO ADULTO MAYOR" },
+    { "value": "PPT", "label": "PRIMA SEGURO INC Y TERREMOTO" },
+    { "value": "PPV", "label": "PRIMA POLIZA DE VIDA" },
+    { "value": "AV", "label": "AVALUOS" },
+    { "value": "AVK", "label": "KM AVALUOS" },
+    { "value": "CH", "label": "CANC. HIPOT." },
+    { "value": "CV", "label": "COMPRA-VENTA" },
+    { "value": "DES", "label": "DESEMBOLSOS" },
+    { "value": "FB", "label": "FORM BFV" },
+    { "value": "FI", "label": "FISCALIZACION INVERSION" },
+    { "value": "FIK", "label": "KM FISCALIZACION" },
+    { "value": "HCB", "label": "HIPOT. CREDBASE" }
   ]
 
 prioridad = [
@@ -167,10 +177,12 @@ tipoAprobacion= [
     { "value": "3", "label": "COMITE DE CREDITO" }
   ]
 
-tipoProfesional = [
-    { "value": "D", "label": "DESARROLLADOR" },
-    { "value": "R", "label": "RESPONSABLE CIVIL" },
+tipoProfesional=[
+    { "value": "A", "label": "ANALISTA" },
+    { "value": "ARQ", "label": "ARQUITECTO" },
     { "value": "C", "label": "CONSTRUCTOR" },
+    { "value": "CO", "label": "CONTADOR" },
+    { "value": "D", "label": "DESARROLLADOR" },
     { "value": "I", "label": "INGENIERO" },
-    { "value": "ARQ", "label": "ARQUITECTO" }
+    { "value": "R", "label": "RESPONSABLE CIVIL" }
   ]

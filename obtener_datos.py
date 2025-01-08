@@ -2,6 +2,7 @@ import listas
 import random
 import faker
 import datos
+from generar_json import generar_profesionales_json, obtener_profesionales_by_filtro
 
 from datetime import datetime, timedelta
 # Obtener la fecha actual
@@ -73,35 +74,50 @@ class ObtenerDatos:
         return texto
 
     def profesionales(orden_array, mim_orden, max_orden):
+        profesionales = []
+        
+        
         texto = ''
         for c in range(1,100):
             linea = ''
+            profesional = {}
             for i in range(mim_orden, max_orden):
                 if i in orden_array:
                     match i:
                         case 2:
-                            linea+= random.choice(listas.tipoProfesional)["value"]                        
+                            te_profesional = random.choice(listas.tipoProfesional)["value"] 
+                            linea+= te_profesional 
+                            profesional["te_profesional"] = te_profesional     
                         case 3:
-                            linea+= ObtenerDatos.generar_cedula_cr().replace('-','')
+                            id_profesional = ObtenerDatos.generar_cedula_cr().replace('-','')
+                            linea+= id_profesional
+                            profesional["id_profesional"] = id_profesional
                         case 4:
-                            linea+= fake.name().upper()
+                            nombre = fake.name().upper()
+                            linea+= nombre 
+                            profesional["nom_profesional"] = nombre
                     linea+='|'
                 else:
                     linea+='|'
+                
             if c != datos.clientes[-1]:
                 linea+='\n'
             texto+=linea
+            profesionales.append(profesional)
+        generar_profesionales_json(profesionales)
         return texto
     
     def estados(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,100):
+        cont=0
+        for c in datos.clientes:
+            cont+=1
             linea = ''
             for i in range(mim_orden, max_orden):
                 if i in orden_array:
                     match i:
                         case 1:
-                            linea+= str(c)
+                            linea+= str(cont)
                         case 4:
                             linea+= 'RL'
                         case 5:
@@ -109,7 +125,7 @@ class ObtenerDatos:
                     linea+='|'
                 else:
                     linea+='|'
-            if c != 99:
+            if c != datos.clientes[-1]:
                 linea+='\n'
             texto+=linea
         return texto
@@ -185,16 +201,20 @@ class ObtenerDatos:
     
     def nucleos(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,31):
-            linea = ''
-            for n in range(1,random.randint(1,4)):
+        cont = 0
+        cont2 = 1
+        for n in range(1,random.randint(1,42)):
+                linea = ''
+                cont +=1
+                if n%4 == 0:
+                    cont2+=1
                 for i in range(mim_orden, max_orden):
                     if i in orden_array:
                         match i:
                             case 1:
-                                linea+=str(c)
+                                linea+=str(cont2)
                             case 2:
-                                linea+= ObtenerDatos.generar_cedula_cr()
+                                linea+= datos.clientes[cont]['IDENTIFICACION']
                             case 3:
                                 linea+= '4024'
                             case 4:
@@ -215,16 +235,14 @@ class ObtenerDatos:
                                 linea+= str(random.choice(["S", "N"]))
                         linea+='|'
                     else:
-                        linea+='|'
-                if c != 100:
-                    linea+='\n'
-                texto+=linea
+                        linea+='|'                
+                texto+=linea+'\n'            
         return texto
     
     def lotes(orden_array, mim_orden, max_orden):
         texto = ''
         
-        for c in range(1,100):
+        for c in range(1,42):
             linea = ''
             area = random.choice([i for i in range(200, 2000, 50)])
             costo = 102
@@ -258,7 +276,7 @@ class ObtenerDatos:
                         case 11:
                             linea+= '1'
                         case 12:
-                            linea+= fake.address().upper()
+                            linea+= fake.address().upper().replace('\n','')
                         case 13:
                             linea+= str(random.randint(1,10))
                         case 14:
@@ -286,7 +304,7 @@ class ObtenerDatos:
     def construccion(orden_array, mim_orden, max_orden):
         texto = ''
         
-        for c in range(1,100):
+        for c in range(1,42):
             linea = ''
             area = random.choice([i for i in range(200, 2000, 50)])
             costo = 500
@@ -320,7 +338,7 @@ class ObtenerDatos:
                         case 11:
                             linea+= str(random.choice(listas.tipoProfesional)["value"])
                         case 12:
-                            linea+= ObtenerDatos.generar_cedula_cr()
+                            linea+= ObtenerDatos.generar_cedula_cr().replace('-','')
                     linea+='|'
                 else:
                     linea+='|'
@@ -394,58 +412,50 @@ class ObtenerDatos:
     
     def aportes(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,100):
+        for c in range(1,42):
             linea = ''
-            for n in range(1,9):
-                if n in [2,6,8,9]:
-                    numero_piezas = 1
+            for i in range(mim_orden, max_orden):
+                if i in orden_array:
+                    match i:
+                        case 1:
+                            linea+=str(c)
+                        case 2:
+                            linea+= '4023'
+                        case 3:
+                            linea+= str(random.choice(listas.tipoAporte)["value"])
+                        case 4:
+                            linea+= str(random.choice([i for i in range(1000, 10000, 1000)]))
+                    linea+='|'
                 else:
-                    numero_piezas = random.randint(1,3)
-                for i in range(mim_orden, max_orden):
-                    if i in orden_array:
-                        match i:
-                            case 1:
-                                linea+=str(c)
-                            case 2:
-                                linea+= '4023'
-                            case 3:
-                                linea+= str(random.choice(listas.tipoAporte)["value"])
-                            case 4:
-                                linea+= str(random.choice([i for i in range(1000, 10000, 1000)]))
-                        linea+='|'
-                    else:
-                        linea+='|'
-                if c != 100:
-                    linea+='\n'
-                texto+=linea
+                    linea+='|'
+            if c != 100:
+                linea+='\n'
+            texto+=linea
         return texto
     
     def gastos(orden_array, mim_orden, max_orden):
         texto = ''
-        for c in range(1,100):
-            linea = ''
-            for n in range(1,9):
-                if n in [2,6,8,9]:
-                    numero_piezas = 1
+        for c in range(1,42):
+            linea = ''       
+            for i in range(mim_orden, max_orden):
+                valores = random.sample(range(500, 10000), 50)
+                valor = str(random.choice(valores))
+                if i in orden_array:
+                    match i:
+                        case 1:
+                            linea+=str(c)
+                        case 3:
+                            linea+= str(random.choice(listas.tipoGasto)["value"])
+                        case 4:
+                            linea+=valor
+                        case 5:
+                            linea+= str(random.choice(["S", "N"]))
+                    linea+='|'
                 else:
-                    numero_piezas = random.randint(1,3)
-                for i in range(mim_orden, max_orden):
-                    if i in orden_array:
-                        match i:
-                            case 1:
-                                linea+=str(c)
-                            case 2:
-                                linea+= str(random.choice(listas.tipoGasto)["value"])
-                            case 3:
-                                linea+= str(random.choice([i for i in range(1000, 10000, 10)]))
-                            case 4:
-                                linea+= str(random.choice(["S", "N"]))
-                        linea+='|'
-                    else:
-                        linea+='|'
-                if c != 100:
-                    linea+='\n'
-                texto+=linea
+                    linea+='|'
+            if c != 100:
+                linea+='\n'
+            texto+=linea
         return texto
     
     def casos(orden_array, mim_orden, max_orden):
@@ -454,6 +464,11 @@ class ObtenerDatos:
         for  c in datos.clientes:
             linea = ''
             cont+=1
+            # Ruta del archivo
+            ruta = "json/profesionales.json"
+            ingeniero = random.choice(obtener_profesionales_by_filtro(ruta, 'I'))
+            contador = random.choice(obtener_profesionales_by_filtro(ruta, 'CO'))
+            analista = random.choice(obtener_profesionales_by_filtro(ruta, 'A'))
             for i in range(mim_orden, max_orden):
                 if i in orden_array:
                     match i:
@@ -492,19 +507,19 @@ class ObtenerDatos:
                         case 26:
                             linea+=str(random.choice([i for i in range(0, 400, 1)])/100)
                         case 28:
-                            linea+=str(random.choice(listas.tipoProfesional)["value"])
+                            linea+= ingeniero['te_profesional']
                         case 29:
                             linea+='30'
                         case 30:
-                            linea+=ObtenerDatos.generar_cedula_cr().replace('-','')
+                            linea+= ingeniero['id_profesional']#ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 32:
-                            linea+='CO'
+                            linea+= contador['te_profesional']
                         case 33:
-                            linea+=ObtenerDatos.generar_cedula_cr().replace('-','')
+                            linea+= contador['id_profesional']#ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 35:
-                            linea+='A'
+                            linea+= analista['te_profesional']
                         case 36:
-                            linea+=ObtenerDatos.generar_cedula_cr().replace('-','')
+                            linea+= analista['id_profesional']#ObtenerDatos.generar_cedula_cr().replace('-','')
                         case 39:
                             linea+=''
                         case 41:
@@ -518,7 +533,7 @@ class ObtenerDatos:
                         case 45:
                             linea+= fecha_aleatoria()
                         case 48:
-                            linea+= fake.address()
+                            linea+= fake.address().replace('\n','')
                         case 50:
                             linea+= '3'
                         case 51:
